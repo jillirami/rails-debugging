@@ -87,7 +87,7 @@ class RsvpsController < ApplicationController
     end
 
     Rsvp.transaction do
-      @rsvp.destroy
+      @rsvp.delete
       WaitlistManager.new(@event.reload).reorder_waitlist!
     end
 
